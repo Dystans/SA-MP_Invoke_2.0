@@ -1,54 +1,57 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="SDK">
-      <UniqueIdentifier>{e5e4671a-d4f3-4345-bd1c-2ee286fc7a97}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="SDK\amx">
-      <UniqueIdentifier>{0c24b69a-2835-46f5-a386-9d5118eeac73}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Invoke">
-      <UniqueIdentifier>{d8d1fbd8-c8b7-4758-a656-9a8345510b11}</UniqueIdentifier>
-    </Filter>
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SDK\amxplugin.cpp">
-      <Filter>SDK</Filter>
-    </ClCompile>
-    <ClCompile Include="SDK\amx\getch.c">
-      <Filter>SDK\amx</Filter>
-    </ClCompile>
     <ClCompile Include="SA-MP SDK.cxx" />
-    <ClCompile Include="Invoke\Invoke.cxx">
-      <Filter>Invoke</Filter>
+    <ClCompile Include="include\Invoke\Invoke.cxx">
+      <Filter>include\Invoke</Filter>
     </ClCompile>
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="SDK\plugin.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\plugincommon.h">
-      <Filter>SDK</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\amx\amx.h">
-      <Filter>SDK\amx</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\amx\getch.h">
-      <Filter>SDK\amx</Filter>
-    </ClInclude>
-    <ClInclude Include="SDK\amx\sclinux.h">
-      <Filter>SDK\amx</Filter>
-    </ClInclude>
-    <ClInclude Include="Invoke\Invoke.hxx">
-      <Filter>Invoke</Filter>
-    </ClInclude>
+    <ClCompile Include="include\SDK\amxplugin.cpp">
+      <Filter>include\SDK</Filter>
+    </ClCompile>
+    <ClCompile Include="include\SDK\amx\getch.c">
+      <Filter>include\SDK\amx</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="SA-MP SDK.def" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Invoke\Invoke.txt">
-      <Filter>Invoke</Filter>
+    <Filter Include="include">
+      <UniqueIdentifier>{871bc912-52fd-4026-8af7-b84545d12a7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\SDK">
+      <UniqueIdentifier>{c486711b-289f-4f9b-843d-714fac2de9a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\Invoke">
+      <UniqueIdentifier>{b178f0f7-cda2-4b4a-900e-813897f01b4d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="include\SDK\amx">
+      <UniqueIdentifier>{6c885b67-259b-45aa-b68b-37f607b99926}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\Invoke\Invoke.hxx">
+      <Filter>include\Invoke</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDK\plugin.h">
+      <Filter>include\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDK\plugincommon.h">
+      <Filter>include\SDK</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDK\amx\amx.h">
+      <Filter>include\SDK\amx</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDK\amx\getch.h">
+      <Filter>include\SDK\amx</Filter>
+    </ClInclude>
+    <ClInclude Include="include\SDK\amx\sclinux.h">
+      <Filter>include\SDK\amx</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\Invoke\Invoke.txt">
+      <Filter>include\Invoke</Filter>
     </Text>
   </ItemGroup>
 </Project>

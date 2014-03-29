@@ -1,4 +1,4 @@
-#include "Invoke\Invoke.hxx"
+#include "include\Invoke\Invoke.hxx"
 
 typedef void (*logprintf_t) (char* format, ...);
 logprintf_t logprintf;
@@ -12,13 +12,13 @@ cell AMX_NATIVE_CALL Testing(AMX* amx, cell* params) {
 		z = NULL;
 
 	//Get the player's position (and check to see if he is even connected).
-	if(g_Invoke->Call_Native(&INVOKE::GetPlayerPos, params[1], &x, &y, &z)) {
+	if(Invoke_Call -> Call_Native(&INVOKE::GetPlayerPos, params[1], &x, &y, &z)) {
 		char name[24];
 
 		//Get the rest of the player's information (name, interior, and virtualworld) and print it.
-		g_Invoke->Call_Native(&INVOKE::GetPlayerName, params[1], name);
-		int interior = g_Invoke->Call_Native(&INVOKE::GetPlayerInterior, params[1]);
-		int virtualworld = g_Invoke->Call_Native(&INVOKE::GetPlayerVirtualWorld, params[1]);
+		Invoke_Call -> Call_Native(&INVOKE::GetPlayerName, params[1], name);
+		int interior = Invoke_Call -> Call_Native(&INVOKE::GetPlayerInterior, params[1]);
+		int virtualworld = Invoke_Call -> Call_Native(&INVOKE::GetPlayerVirtualWorld, params[1]);
 
 		logprintf("%s is at X: %.2f, Y: %.2f, Z: %.2f (Virtual world: %d, Interior %d).", name, x, y, z, virtualworld, interior);
 		return 1;

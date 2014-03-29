@@ -229,12 +229,12 @@ typedef struct tagAMX {
   AMX_CALLBACK callback PACKED;
   AMX_DEBUG debug       PACKED; /* debug callback */
   /* for external functions a few registers must be accessible from the outside */
-  cell cip              PACKED; /* instruction pointer: relative to base + amxhdr->cod */
-  cell frm              PACKED; /* stack frame base: relative to base + amxhdr->dat */
-  cell hea              PACKED; /* top of the heap: relative to base + amxhdr->dat */
-  cell hlw              PACKED; /* bottom of the heap: relative to base + amxhdr->dat */
-  cell stk              PACKED; /* stack pointer: relative to base + amxhdr->dat */
-  cell stp              PACKED; /* top of the stack: relative to base + amxhdr->dat */
+  cell cip              PACKED; /* instruction pointer: relative to base + amxhdr -> cod */
+  cell frm              PACKED; /* stack frame base: relative to base + amxhdr -> dat */
+  cell hea              PACKED; /* top of the heap: relative to base + amxhdr -> dat */
+  cell hlw              PACKED; /* bottom of the heap: relative to base + amxhdr -> dat */
+  cell stk              PACKED; /* stack pointer: relative to base + amxhdr -> dat */
+  cell stp              PACKED; /* top of the stack: relative to base + amxhdr -> dat */
   int flags             PACKED; /* current status, see amx_Flags() */
   /* user data */
   long usertags[AMX_USERNUM] PACKED;

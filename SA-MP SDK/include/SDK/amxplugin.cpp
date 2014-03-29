@@ -64,13 +64,13 @@ NUDE   uint64_t * AMXAPI amx_Align64(uint64_t *v)
 }
 
 #endif
-NUDE int AMXAPI amx_Allot(AMX *amx, int cells, cell *amx_addr, cell **phys_addr)
+NUDE int AMXAPI amx_Allot(AMX *amx, int longs, long *amx_addr, long **phys_addr)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Allot*4];
 }
 
-NUDE int AMXAPI amx_Callback(AMX *amx, cell index, cell *result, cell *params)
+NUDE int AMXAPI amx_Callback(AMX *amx, long index, long *result, long *params)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Callback*4];
@@ -88,7 +88,7 @@ NUDE int AMXAPI amx_Clone(AMX *amxClone, AMX *amxSource, void *data)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Clone*4];
 }
 
-NUDE int AMXAPI amx_Exec(AMX *amx, cell *retval, int index)
+NUDE int AMXAPI amx_Exec(AMX *amx, long *retval, int index)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Exec*4];
@@ -106,13 +106,13 @@ NUDE int AMXAPI amx_FindPublic(AMX *amx, const char *funcname, int *index)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_FindPublic*4];
 }
 
-NUDE int AMXAPI amx_FindPubVar(AMX *amx, const char *varname, cell *amx_addr)
+NUDE int AMXAPI amx_FindPubVar(AMX *amx, const char *varname, long *amx_addr)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_FindPubVar*4];
 }
 
-NUDE int AMXAPI amx_FindTagId(AMX *amx, cell tag_id, char *tagname)
+NUDE int AMXAPI amx_FindTagId(AMX *amx, long tag_id, char *tagname)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_FindTagId*4];
@@ -124,7 +124,7 @@ NUDE int AMXAPI amx_Flags(AMX *amx,uint16_t *flags)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Flags*4];
 }
 
-NUDE int AMXAPI amx_GetAddr(AMX *amx,cell amx_addr,cell **phys_addr)
+NUDE int AMXAPI amx_GetAddr(AMX *amx,long amx_addr,long **phys_addr)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_GetAddr*4];
@@ -142,19 +142,19 @@ NUDE int AMXAPI amx_GetPublic(AMX *amx, int index, char *funcname)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_GetPublic*4];
 }
 
-NUDE int AMXAPI amx_GetPubVar(AMX *amx, int index, char *varname, cell *amx_addr)
+NUDE int AMXAPI amx_GetPubVar(AMX *amx, int index, char *varname, long *amx_addr)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_GetPubVar*4];
 }
 
-NUDE int AMXAPI amx_GetString(char *dest,const cell *source, int use_wchar, size_t size)
+NUDE int AMXAPI amx_GetString(char *dest,const long *source, int use_wchar, size_t size)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_GetString*4];
 }
 
-NUDE int AMXAPI amx_GetTag(AMX *amx, int index, char *tagname, cell *tag_id)
+NUDE int AMXAPI amx_GetTag(AMX *amx, int index, char *tagname, long *tag_id)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_GetTag*4];
@@ -220,19 +220,19 @@ NUDE int AMXAPI amx_NumTags(AMX *amx, int *number)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_NumTags*4];
 }
 
-NUDE int AMXAPI amx_Push(AMX *amx, cell value)
+NUDE int AMXAPI amx_Push(AMX *amx, long value)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Push*4];
 }
 
-NUDE int AMXAPI amx_PushArray(AMX *amx, cell *amx_addr, cell **phys_addr, const cell array[], int numcells)
+NUDE int AMXAPI amx_PushArray(AMX *amx, long *amx_addr, long **phys_addr, const long array[], int numlongs)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_PushArray*4];
 }
 
-NUDE int AMXAPI amx_PushString(AMX *amx, cell *amx_addr, cell **phys_addr, const char *string, int pack, int use_wchar)
+NUDE int AMXAPI amx_PushString(AMX *amx, long *amx_addr, long **phys_addr, const char *string, int pack, int use_wchar)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_PushString*4];
@@ -250,7 +250,7 @@ NUDE int AMXAPI amx_Register(AMX *amx, const AMX_NATIVE_INFO *nativelist, int nu
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Register*4];
 }
 
-NUDE int AMXAPI amx_Release(AMX *amx, cell amx_addr)
+NUDE int AMXAPI amx_Release(AMX *amx, long amx_addr)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_Release*4];
@@ -268,7 +268,7 @@ NUDE int AMXAPI amx_SetDebugHook(AMX *amx, AMX_DEBUG debug)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_SetDebugHook*4];
 }
 
-NUDE int AMXAPI amx_SetString(cell *dest, const char *source, int pack, int use_wchar, size_t size)
+NUDE int AMXAPI amx_SetString(long *dest, const char *source, int pack, int use_wchar, size_t size)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_SetString*4];
@@ -280,7 +280,7 @@ NUDE int AMXAPI amx_SetUserData(AMX *amx, long tag, void *ptr)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_SetUserData*4];
 }
 
-NUDE int AMXAPI amx_StrLen(const cell *cstring, int *length)
+NUDE int AMXAPI amx_StrLen(const long *cstring, int *length)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_StrLen*4];
@@ -292,19 +292,19 @@ NUDE int AMXAPI amx_UTF8Check(const char *string, int *length)
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_UTF8Check*4];
 }
 
-NUDE int AMXAPI amx_UTF8Get(const char *string, const char **endptr, cell *value)
+NUDE int AMXAPI amx_UTF8Get(const char *string, const char **endptr, long *value)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_UTF8Get*4];
 }
 
-NUDE int AMXAPI amx_UTF8Len(const cell *cstr, int *length)
+NUDE int AMXAPI amx_UTF8Len(const long *cstr, int *length)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_UTF8Len*4];
 }
 
-NUDE int AMXAPI amx_UTF8Put(char *string, char **endptr, int maxchars, cell value)
+NUDE int AMXAPI amx_UTF8Put(char *string, char **endptr, int maxchars, long value)
 {
 	_asm mov eax, pAMXFunctions;
 	_asm jmp dword ptr [eax+PLUGIN_AMX_EXPORT_UTF8Put*4];
@@ -337,15 +337,15 @@ typedef   uint64_t *  AMXAPI (*amx_Align64_t)(uint64_t *v);
 }
 
 #endif
-typedef int  AMXAPI (*amx_Allot_t)(AMX *amx, int cells, cell *amx_addr, cell **phys_addr);
-int AMXAPI amx_Allot(AMX *amx, int cells, cell *amx_addr, cell **phys_addr)
+typedef int  AMXAPI (*amx_Allot_t)(AMX *amx, int longs, long *amx_addr, long **phys_addr);
+int AMXAPI amx_Allot(AMX *amx, int longs, long *amx_addr, long **phys_addr)
 {
 	amx_Allot_t fn = ((amx_Allot_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_Allot];
-	return fn(amx, cells, amx_addr, phys_addr);
+	return fn(amx, longs, amx_addr, phys_addr);
 }
 
-typedef int  AMXAPI (*amx_Callback_t)(AMX *amx, cell index, cell *result, cell *params);
-int AMXAPI amx_Callback(AMX *amx, cell index, cell *result, cell *params)
+typedef int  AMXAPI (*amx_Callback_t)(AMX *amx, long index, long *result, long *params);
+int AMXAPI amx_Callback(AMX *amx, long index, long *result, long *params)
 {
 	amx_Callback_t fn = ((amx_Callback_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_Callback];
 	return fn(amx, index, result, params);
@@ -365,8 +365,8 @@ int AMXAPI amx_Clone(AMX *amxClone, AMX *amxSource, void *data)
 	return fn(amxClone, amxSource, data);
 }
 
-typedef int  AMXAPI (*amx_Exec_t)(AMX *amx, cell *retval, int index);
-int AMXAPI amx_Exec(AMX *amx, cell *retval, int index)
+typedef int  AMXAPI (*amx_Exec_t)(AMX *amx, long *retval, int index);
+int AMXAPI amx_Exec(AMX *amx, long *retval, int index)
 {
 	amx_Exec_t fn = ((amx_Exec_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_Exec];
 	return fn(amx, retval, index);
@@ -386,15 +386,15 @@ int AMXAPI amx_FindPublic(AMX *amx, const char *funcname, int *index)
 	return fn(amx, funcname, index);
 }
 
-typedef int  AMXAPI (*amx_FindPubVar_t)(AMX *amx, const char *varname, cell *amx_addr);
-int AMXAPI amx_FindPubVar(AMX *amx, const char *varname, cell *amx_addr)
+typedef int  AMXAPI (*amx_FindPubVar_t)(AMX *amx, const char *varname, long *amx_addr);
+int AMXAPI amx_FindPubVar(AMX *amx, const char *varname, long *amx_addr)
 {
 	amx_FindPubVar_t fn = ((amx_FindPubVar_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_FindPubVar];
 	return fn(amx, varname, amx_addr);
 }
 
-typedef int  AMXAPI (*amx_FindTagId_t)(AMX *amx, cell tag_id, char *tagname);
-int AMXAPI amx_FindTagId(AMX *amx, cell tag_id, char *tagname)
+typedef int  AMXAPI (*amx_FindTagId_t)(AMX *amx, long tag_id, char *tagname);
+int AMXAPI amx_FindTagId(AMX *amx, long tag_id, char *tagname)
 {
 	amx_FindTagId_t fn = ((amx_FindTagId_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_FindTagId];
 	return fn(amx, tag_id, tagname);
@@ -407,8 +407,8 @@ int AMXAPI amx_Flags(AMX *amx,uint16_t *flags)
 	return fn(amx,flags);
 }
 
-typedef int  AMXAPI (*amx_GetAddr_t)(AMX *amx,cell amx_addr,cell **phys_addr);
-int AMXAPI amx_GetAddr(AMX *amx,cell amx_addr,cell **phys_addr)
+typedef int  AMXAPI (*amx_GetAddr_t)(AMX *amx,long amx_addr,long **phys_addr);
+int AMXAPI amx_GetAddr(AMX *amx,long amx_addr,long **phys_addr)
 {
 	amx_GetAddr_t fn = ((amx_GetAddr_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_GetAddr];
 	return fn(amx,amx_addr,phys_addr);
@@ -428,22 +428,22 @@ int AMXAPI amx_GetPublic(AMX *amx, int index, char *funcname)
 	return fn(amx, index, funcname);
 }
 
-typedef int  AMXAPI (*amx_GetPubVar_t)(AMX *amx, int index, char *varname, cell *amx_addr);
-int AMXAPI amx_GetPubVar(AMX *amx, int index, char *varname, cell *amx_addr)
+typedef int  AMXAPI (*amx_GetPubVar_t)(AMX *amx, int index, char *varname, long *amx_addr);
+int AMXAPI amx_GetPubVar(AMX *amx, int index, char *varname, long *amx_addr)
 {
 	amx_GetPubVar_t fn = ((amx_GetPubVar_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_GetPubVar];
 	return fn(amx, index, varname, amx_addr);
 }
 
-typedef int  AMXAPI (*amx_GetString_t)(char *dest,const cell *source, int use_wchar, size_t size);
-int AMXAPI amx_GetString(char *dest,const cell *source, int use_wchar, size_t size)
+typedef int  AMXAPI (*amx_GetString_t)(char *dest,const long *source, int use_wchar, size_t size);
+int AMXAPI amx_GetString(char *dest,const long *source, int use_wchar, size_t size)
 {
 	amx_GetString_t fn = ((amx_GetString_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_GetString];
 	return fn(dest,source, use_wchar, size);
 }
 
-typedef int  AMXAPI (*amx_GetTag_t)(AMX *amx, int index, char *tagname, cell *tag_id);
-int AMXAPI amx_GetTag(AMX *amx, int index, char *tagname, cell *tag_id)
+typedef int  AMXAPI (*amx_GetTag_t)(AMX *amx, int index, char *tagname, long *tag_id);
+int AMXAPI amx_GetTag(AMX *amx, int index, char *tagname, long *tag_id)
 {
 	amx_GetTag_t fn = ((amx_GetTag_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_GetTag];
 	return fn(amx, index, tagname, tag_id);
@@ -519,22 +519,22 @@ int AMXAPI amx_NumTags(AMX *amx, int *number)
 	return fn(amx, number);
 }
 
-typedef int  AMXAPI (*amx_Push_t)(AMX *amx, cell value);
-int AMXAPI amx_Push(AMX *amx, cell value)
+typedef int  AMXAPI (*amx_Push_t)(AMX *amx, long value);
+int AMXAPI amx_Push(AMX *amx, long value)
 {
 	amx_Push_t fn = ((amx_Push_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_Push];
 	return fn(amx, value);
 }
 
-typedef int  AMXAPI (*amx_PushArray_t)(AMX *amx, cell *amx_addr, cell **phys_addr, const cell array[], int numcells);
-int AMXAPI amx_PushArray(AMX *amx, cell *amx_addr, cell **phys_addr, const cell array[], int numcells)
+typedef int  AMXAPI (*amx_PushArray_t)(AMX *amx, long *amx_addr, long **phys_addr, const long array[], int numlongs);
+int AMXAPI amx_PushArray(AMX *amx, long *amx_addr, long **phys_addr, const long array[], int numlongs)
 {
 	amx_PushArray_t fn = ((amx_PushArray_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_PushArray];
-	return fn(amx, amx_addr, phys_addr, array, numcells);
+	return fn(amx, amx_addr, phys_addr, array, numlongs);
 }
 
-typedef int  AMXAPI (*amx_PushString_t)(AMX *amx, cell *amx_addr, cell **phys_addr, const char *string, int pack, int use_wchar);
-int AMXAPI amx_PushString(AMX *amx, cell *amx_addr, cell **phys_addr, const char *string, int pack, int use_wchar)
+typedef int  AMXAPI (*amx_PushString_t)(AMX *amx, long *amx_addr, long **phys_addr, const char *string, int pack, int use_wchar);
+int AMXAPI amx_PushString(AMX *amx, long *amx_addr, long **phys_addr, const char *string, int pack, int use_wchar)
 {
 	amx_PushString_t fn = ((amx_PushString_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_PushString];
 	return fn(amx, amx_addr, phys_addr, string, pack, use_wchar);
@@ -554,8 +554,8 @@ int AMXAPI amx_Register(AMX *amx, const AMX_NATIVE_INFO *nativelist, int number)
 	return fn(amx, nativelist, number);
 }
 
-typedef int  AMXAPI (*amx_Release_t)(AMX *amx, cell amx_addr);
-int AMXAPI amx_Release(AMX *amx, cell amx_addr)
+typedef int  AMXAPI (*amx_Release_t)(AMX *amx, long amx_addr);
+int AMXAPI amx_Release(AMX *amx, long amx_addr)
 {
 	amx_Release_t fn = ((amx_Release_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_Release];
 	return fn(amx, amx_addr);
@@ -575,8 +575,8 @@ int AMXAPI amx_SetDebugHook(AMX *amx, AMX_DEBUG debug)
 	return fn(amx, debug);
 }
 
-typedef int  AMXAPI (*amx_SetString_t)(cell *dest, const char *source, int pack, int use_wchar, size_t size);
-int AMXAPI amx_SetString(cell *dest, const char *source, int pack, int use_wchar, size_t size)
+typedef int  AMXAPI (*amx_SetString_t)(long *dest, const char *source, int pack, int use_wchar, size_t size);
+int AMXAPI amx_SetString(long *dest, const char *source, int pack, int use_wchar, size_t size)
 {
 	amx_SetString_t fn = ((amx_SetString_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_SetString];
 	return fn(dest, source, pack, use_wchar, size);
@@ -589,8 +589,8 @@ int AMXAPI amx_SetUserData(AMX *amx, long tag, void *ptr)
 	return fn(amx, tag, ptr);
 }
 
-typedef int  AMXAPI (*amx_StrLen_t)(const cell *cstring, int *length);
-int AMXAPI amx_StrLen(const cell *cstring, int *length)
+typedef int  AMXAPI (*amx_StrLen_t)(const long *cstring, int *length);
+int AMXAPI amx_StrLen(const long *cstring, int *length)
 {
 	amx_StrLen_t fn = ((amx_StrLen_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_StrLen];
 	return fn(cstring, length);
@@ -603,22 +603,22 @@ int AMXAPI amx_UTF8Check(const char *string, int *length)
 	return fn(string, length);
 }
 
-typedef int  AMXAPI (*amx_UTF8Get_t)(const char *string, const char **endptr, cell *value);
-int AMXAPI amx_UTF8Get(const char *string, const char **endptr, cell *value)
+typedef int  AMXAPI (*amx_UTF8Get_t)(const char *string, const char **endptr, long *value);
+int AMXAPI amx_UTF8Get(const char *string, const char **endptr, long *value)
 {
 	amx_UTF8Get_t fn = ((amx_UTF8Get_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_UTF8Get];
 	return fn(string, endptr, value);
 }
 
-typedef int  AMXAPI (*amx_UTF8Len_t)(const cell *cstr, int *length);
-int AMXAPI amx_UTF8Len(const cell *cstr, int *length)
+typedef int  AMXAPI (*amx_UTF8Len_t)(const long *cstr, int *length);
+int AMXAPI amx_UTF8Len(const long *cstr, int *length)
 {
 	amx_UTF8Len_t fn = ((amx_UTF8Len_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_UTF8Len];
 	return fn(cstr, length);
 }
 
-typedef int  AMXAPI (*amx_UTF8Put_t)(char *string, char **endptr, int maxchars, cell value);
-int AMXAPI amx_UTF8Put(char *string, char **endptr, int maxchars, cell value)
+typedef int  AMXAPI (*amx_UTF8Put_t)(char *string, char **endptr, int maxchars, long value);
+int AMXAPI amx_UTF8Put(char *string, char **endptr, int maxchars, long value)
 {
 	amx_UTF8Put_t fn = ((amx_UTF8Put_t*)pAMXFunctions)[PLUGIN_AMX_EXPORT_UTF8Put];
 	return fn(string, endptr, maxchars, value);

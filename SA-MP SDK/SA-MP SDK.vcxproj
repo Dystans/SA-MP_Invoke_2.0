@@ -11,24 +11,24 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Invoke\Invoke.cxx" />
+    <ClCompile Include="include\Invoke\Invoke.cxx" />
+    <ClCompile Include="include\SDK\amxplugin.cpp" />
+    <ClCompile Include="include\SDK\amx\getch.c" />
     <ClCompile Include="SA-MP SDK.cxx" />
-    <ClCompile Include="SDK\amxplugin.cpp" />
-    <ClCompile Include="SDK\amx\getch.c" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="Invoke\Invoke.hxx" />
-    <ClInclude Include="SDK\amx\amx.h" />
-    <ClInclude Include="SDK\amx\getch.h" />
-    <ClInclude Include="SDK\amx\sclinux.h" />
-    <ClInclude Include="SDK\plugin.h" />
-    <ClInclude Include="SDK\plugincommon.h" />
   </ItemGroup>
   <ItemGroup>
     <None Include="SA-MP SDK.def" />
   </ItemGroup>
   <ItemGroup>
-    <Text Include="Invoke\Invoke.txt" />
+    <ClInclude Include="include\Invoke\Invoke.hxx" />
+    <ClInclude Include="include\SDK\amx\amx.h" />
+    <ClInclude Include="include\SDK\amx\getch.h" />
+    <ClInclude Include="include\SDK\amx\sclinux.h" />
+    <ClInclude Include="include\SDK\plugin.h" />
+    <ClInclude Include="include\SDK\plugincommon.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="include\Invoke\Invoke.txt" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{734C1B59-D684-4A60-BB3E-82690EA516A1}</ProjectGuid>

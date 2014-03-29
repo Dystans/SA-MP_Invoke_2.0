@@ -28,51 +28,45 @@
 
 #include "Invoke.hxx"
 
-Invoke * g_Invoke;
-#define callNative Call_Native 
+Invoke * Invoke_Call;
 
 int Invoke::Call_Native(const INVOKE::Native * native, ...) {
-	if(amx_list.empty() || amx_map.find(native->name) == amx_map.end()) {
+	if(amx_list.empty() || amx_map.find(native -> name) == amx_map.end()) {
 		return false;
 	}
 
-	unsigned int amx_addr = amx_map[native->name], count = strlen(native->data), variables = 0;
-	cell * params = new cell[count + 1], * physAddr[6];
-	params[0] = count * sizeof(cell);
-	va_list input;
+	unsigned int amx_addr = amx_map[native -> name], count = strlen(native -> data), variables = 0;
+	long int * params = new long int[count + 1], *physAddr[6];
+	params[0] = count * sizeof(long int);
+	char * input;
 	va_start(input, native);
 	for(unsigned int i = 0; i < count; ++i) {
-		switch(native->data[i]) {
+		switch(native -> data[i]) {
 			case 'd': {
 				params[i + 1] = va_arg(input, int);
-			}
+			} break;
 			case 'f': {
 				float value = (float) va_arg(input, double);
 				params[i + 1] = amx_ftoc(value);
-			}
-			break;
+			} break;
 			case 'i': {
 				params[i + 1] = va_arg(input, int);
-			}
-			break;
+			} break;
 			case 'p': {
 				va_arg(input, void *);
 				int size = va_arg(input, int);
 				amx_Allot(amx_list.front(), size, &params[++i], &physAddr[variables++]);
 				params[i + 1] = size;
-			}
-			break;
+			} break;
 			case 's': {
 				char * string = va_arg(input, char *);
 				amx_Allot(amx_list.front(), strlen(string) + 1, &params[i + 1], &physAddr[variables++]);
 				amx_SetString(physAddr[variables - 1], string, 0, 0, strlen(string) + 1);
-			}
-			break;
+			} break;
 			case 'v': {
 				va_arg(input, void *);
 				amx_Allot(amx_list.front(), 1, &params[i + 1], &physAddr[variables++]);
-			}
-			break;
+			} break;
 		}
 	}
 	va_end(input);
@@ -82,28 +76,24 @@ int Invoke::Call_Native(const INVOKE::Native * native, ...) {
 		variables = 0;
 		va_start(input, native);
 		for(unsigned int i = 0; i < count; ++i) {
-			switch(native->data[i]) {
+			switch(native -> data[i]) {
 				case 'p': {
 					char * text = va_arg(input, char *);
 					int size = va_arg(input, int);
 					amx_GetString(text, physAddr[variables++], 0, size);
 					amx_Release(amx_list.front(), params[++i]);
-				}
-				break;
+				} break;
 				case 's': {
 					amx_Release(amx_list.front(), params[i + 1]);
-				}
-				break;
+				} break;
 				case 'v': {
 					unsigned int * value = va_arg(input, unsigned int *), * returnValue = (unsigned int *) physAddr[variables++];
 					* value = * returnValue;
 					amx_Release(amx_list.front(), params[i + 1]);
-				}
-				break;
+				} break;
 				default: {
 					va_arg(input, void *);
-				}
-				break;
+				} break;
 			}
 		}
 		va_end(input);
@@ -111,12 +101,13 @@ int Invoke::Call_Native(const INVOKE::Native * native, ...) {
 	delete[] params;
 	return value;
 }
+#define callNative Call_Native
 
 int Invoke::getAddresses() {
 	if(gotAddresses) {
 		return true;
 	}
-	AMX_HEADER * amx_hdr = (AMX_HEADER *) (amx_list.back())->base;
+	AMX_HEADER * amx_hdr = (AMX_HEADER *) (amx_list.back()) -> base;
 	std::size_t size = sizeof(INVOKE::names) / sizeof(const char *);
 	for(std::size_t i = 0; i < size; ++i) {
 		amx_FindNative(amx_list.back(), INVOKE::names[i], &amx_idx);
