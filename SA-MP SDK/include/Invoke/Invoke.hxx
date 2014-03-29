@@ -516,6 +516,12 @@ namespace INVOKE {
 	// a_players:
 	NATIVE SetSpawnInfo = {"SetSpawnInfo", "dddffffdddddd"};
 	NATIVE SpawnPlayer = {"SpawnPlayer", "d"};
+	NATIVE SetPlayerPos = {"SetPlayerPos", "dfff"};
+	NATIVE SetPlayerPosFindZ = {"SetPlayerPosFindZ", "dfff"};
+	NATIVE GetPlayerPos = {"GetPlayerPos", "dvvv"};
+	NATIVE SetPlayerFacingAngle = {"SetPlayerFacingAngle", "df"};
+	NATIVE GetPlayerFacingAngle = {"GetPlayerFacingAngle", "dv"};
+
 
 	// a_samp:
 	NATIVE SendClientMessage =					{ "SendClientMessage","iis" };
