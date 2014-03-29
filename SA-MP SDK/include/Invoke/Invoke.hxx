@@ -513,8 +513,9 @@ namespace INVOKE {
 	NATIVE SetObjectMaterialText = {"SetObjectMaterialText", "dsddsddddd"};
 	NATIVE SetPlayerObjectMaterialText = {"SetPlayerObjectMaterialText", "ddsddsddddd"};
 
-	// a_samp:
+	// a_players:
 
+	// a_samp:
 	NATIVE SendClientMessage =					{ "SendClientMessage","iis" };
 	NATIVE SendClientMessageToAll =			{ "SendClientMessageToAll","is" };
 	NATIVE SendDeathMessage =					{ "SendDeathMessage","iii" };
