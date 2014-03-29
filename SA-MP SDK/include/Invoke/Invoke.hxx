@@ -514,6 +514,8 @@ namespace INVOKE {
 	NATIVE SetPlayerObjectMaterialText = {"SetPlayerObjectMaterialText", "ddsddsddddd"};
 
 	// a_players:
+	NATIVE SetSpawnInfo = {"SetSpawnInfo", "dddffffdddddd"};
+	NATIVE SpawnPlayer = {"SpawnPlayer", "d"};
 
 	// a_samp:
 	NATIVE SendClientMessage =					{ "SendClientMessage","iis" };
