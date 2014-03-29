@@ -521,6 +521,11 @@ namespace INVOKE {
 	NATIVE GetPlayerPos = {"GetPlayerPos", "dvvv"};
 	NATIVE SetPlayerFacingAngle = {"SetPlayerFacingAngle", "df"};
 	NATIVE GetPlayerFacingAngle = {"GetPlayerFacingAngle", "dv"};
+	NATIVE IsPlayerInRangeOfPoint = {"IsPlayerInRangeOfPoint", "dffff"};
+	NATIVE GetPlayerDistanceFromPoint = {"GetPlayerDistanceFromPoint" "dvvv"};
+	NATIVE IsPlayerStreamedIn = {"IsPlayerStreamedIn", "dd"};
+	NATIVE SetPlayerInterior = {"SetPlayerInterior", "dd"};
+	NATIVE GetPlayerInterior = {"GetPlayerInterior", "d"};
 
 
 	// a_samp:
