@@ -35,6 +35,8 @@
 
 #include "..\SDK\plugin.h"
 
+#define EMPTY_PARAMS ""
+
 namespace INVOKE {
 	struct Native {
 		const char * name;
@@ -447,7 +449,7 @@ namespace INVOKE {
 	NATIVE print = {"print", "s"};
 	NATIVE SetTimer = {"SetTimer", "sii"};
 	NATIVE KillTimer = {"KillTimer", "i"};
-	NATIVE GetTickCount = {"GetTickCount", ""};
+	NATIVE GetTickCount = {"GetTickCount", EMPTY_PARAMS};
 	NATIVE asin = {"asin", "f"};
 	NATIVE acos = {"acos", "f"};
 	NATIVE atan = {"atan", "f"};
@@ -474,9 +476,9 @@ namespace INVOKE {
 	NATIVE GetPlayerName = {"GetPlayerName", "dpd"};
 	NATIVE IsPlayerConnected = {"IsPlayerConnected", "d"};
 	NATIVE StartRecordingPlayback = {"StartRecordingPlayback", "ds"};
-	NATIVE StopRecordingPlayback = {"StopRecordingPlayback", ""};
-	NATIVE PauseRecordingPlayback = {"PauseRecordingPlayback", ""};
-	NATIVE ResumeRecordingPlayback = {"ResumeRecordingPlayback", ""};
+	NATIVE StopRecordingPlayback = {"StopRecordingPlayback", EMPTY_PARAMS};
+	NATIVE PauseRecordingPlayback = {"PauseRecordingPlayback", EMPTY_PARAMS};
+	NATIVE ResumeRecordingPlayback = {"ResumeRecordingPlayback", EMPTY_PARAMS};
 
 	// a_objects:
 	NATIVE CreateObject = {"CreateObject", "dfffffff"};
@@ -534,8 +536,8 @@ namespace INVOKE {
 	NATIVE SendDeathMessage =					{ "SendDeathMessage","iii" };
 	NATIVE GameTextForAll =					{ "GameTextForAll","sii" };
 	NATIVE GameTextForPlayer =					{ "GameTextForPlayer",	"isii" };
-	NATIVE GetTickCount =						{ "GetTickCount","" };
-	NATIVE GetMaxPlayers =						{ "GetMaxPlayers",	"" };
+	NATIVE GetTickCount = {"GetTickCount", EMPTY_PARAMS};
+	NATIVE GetMaxPlayers = {"GetMaxPlayers", EMPTY_PARAMS};
 	NATIVE SetGameModeText =					{  "SetGameModeText","s" };
 	NATIVE SetTeamCount =						{  "SetTeamCount", "i" };
 	NATIVE AddPlayerClass =					{ "AddPlayerClass","iffffiiiiii" };
@@ -545,7 +547,7 @@ namespace INVOKE {
 	NATIVE AddStaticPickup =					{ "AddStaticPickup","iifff" };
 	NATIVE ShowNameTags =						{ "ShowNameTags","i" };
 	NATIVE ShowPlayerMarkers =					{ "ShowPlayerMarkers",	"i" };
-	NATIVE GameModeExit =						{ "GameModeExit","" };
+	NATIVE GameModeExit = {"GameModeExit", EMPTY_PARAMS};
 	NATIVE SetWorldTime =						{"SetWorldTime","i" };
 	NATIVE GetWeaponName =						{ "GetWeaponName",	"ivi" };
 	NATIVE EnableTirePopping =					{ "EnableTirePopping","i" };
